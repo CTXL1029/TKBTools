@@ -9,18 +9,18 @@ def runner(day, path):
         if Subject != "—":
             In_day.append(Subject)
 
-        out = f"Thứ {day}: {" - ".join(In_day)}"
+        out = f"""Thứ {day}: {" - ".join(In_day)}"""
 
     if str(table.cell(9, day).text.strip()) != "—":
        subj = str(table.cell(9, day).text.strip())
-       out = out.__add__(f" | {subj.replace("\n", " ")}")
+       out = out.__add__(f""" | {subj.replace("\n", " ")}""")
 
     if str(table.cell(10, day).text.strip()) != "—" and "|" in out:
        subj = str(table.cell(10, day).text.strip())
-       out = out.__add__(f" - {subj.replace("\n", " ")}")
+       out = out.__add__(f""" - {subj.replace("\n", " ")}""")
     elif str(table.cell(10, day).text.strip()) != "—" and "|" not in out:
         subj = str(table.cell(10, day).text.strip())
-        out = out.__add__(f" | {subj.replace("\n", " ")}")
+        out = out.__add__(f""" | {subj.replace("\n", " ")}""")
 
 
     print(out)
