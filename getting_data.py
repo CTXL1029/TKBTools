@@ -2,21 +2,6 @@ import pdfplumber, re, docx
 from docx.shared import Pt
 from docx.oxml.ns import qn
 from docx.enum.table import WD_ALIGN_VERTICAL
-from colorama import Fore, Style, init
-
-init()
-class line:
-    BOLD = Style.BRIGHT
-    BLUE = Fore.BLUE
-    CYAN = Fore.CYAN
-    RED = Fore.RED
-    GREEN = Fore.GREEN
-    YELLOW = Fore.YELLOW
-    WHITE = Fore.WHITE
-    MAGENTA = Fore.MAGENTA
-    LIGHT_ORANGE = "\033[38;5;214m"
-    ORANGE = "\033[38;5;208m"
-    RESET = Style.RESET_ALL
 
 SUBJECT_MAP = {
     'TOÁN': 'Toán', 'VĂN': 'Ngữ Văn', 'ANH': 'Tiếng Anh',
@@ -171,4 +156,4 @@ def fill_docx(data, date_str, TEMPLATE_PATH, OUTPUT_PATH):
 def start(PDF_PATH, TEMPLATE_PATH, OUTPUT_PATH):
     data, date_val = get_data_from_pdf(PDF_PATH)
     fill_docx(data, date_val, TEMPLATE_PATH, OUTPUT_PATH)
-    print(f"{line.LIGHT_ORANGE}{line.BOLD}Tạo TKB.docx thành công!{line.RESET}\n")
+    print(f"Tạo TKB.docx thành công!\n")

@@ -1,18 +1,4 @@
-from colorama import Fore, Style, init
 import docx
-init()
-class line:
-    BOLD = Style.BRIGHT
-    BLUE = Fore.BLUE
-    CYAN = Fore.CYAN
-    RED = Fore.RED
-    GREEN = Fore.GREEN
-    YELLOW = Fore.YELLOW
-    WHITE = Fore.WHITE
-    MAGENTA = Fore.MAGENTA
-    LIGHT_ORANGE = "\033[38;5;214m"
-    ORANGE = "\033[38;5;208m"
-    RESET = Style.RESET_ALL
 
 def runner(day, path):
     document = docx.Document(path)
@@ -47,4 +33,4 @@ def start(path):
         if day != 7:
             copy += "\n\n"
     return copy
-    print(f"{line.LIGHT_ORANGE}{line.BOLD}Đã sao chép TKB rút gọn vào bảng nhớ tạm!{line.RESET}\n")
+    print(f"Đã sao chép TKB rút gọn vào bảng nhớ tạm!\n")
