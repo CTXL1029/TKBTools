@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Công Cụ Thời Khóa Biểu</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; }
+        .btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #0056b3; }
+        .result-box { background: #e9ecef; padding: 15px; border-radius: 5px; white-space: pre-wrap; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tạo Thời Khóa Biểu Tự Động</h2>
+        
+        {% if error %}
+            <p style="color: red;">Lỗi: {{ error }}</p>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <label>Tải lên file All_TKB.pdf:</label><br><br>
+            <input type="file" name="file_tkb" accept=".pdf" required><br><br>
+            <button type="submit" class="btn">Xử lý ngay</button>
+        </form>
+
+        {% if success %}
+            <h3 style="color: green;">✓ Đã tạo thành công!</h3>
+            <a href="/download/docx" class="btn">Tải TKB (.docx)</a>
+            <a href="/download/pdf" class="btn">Tải TKB (.pdf)</a>
+            
+            <h4>TKB Rút gọn (Copy thủ công):</h4>
+            <div class="result-box">{{ result_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
